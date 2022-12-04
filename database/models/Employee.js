@@ -1,17 +1,17 @@
 const { Sequelize, DataTypes} = require('sequelize');
 const db = require('../db');
 
-const Employee = sequelize.define('User', 
+const Employee = Sequelize.define('Employee', 
     {firstName: 
         {type: DataTypes.STRING,
             allowNull: false
         },
     lastName:
-        {type: DataTypes.STRING
+        {type: DataTypes.STRING,
             allowNull: false
         },
     department:
-        {type: DataTypes.STRING
+        {type: DataTypes.STRING,
             allowNull: false
         }
 
