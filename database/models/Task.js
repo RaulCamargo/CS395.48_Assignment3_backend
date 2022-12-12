@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes} = require('sequelize');
 const db = require('../db');
 
-const Task = Sequelize.define('Task',
+const Task = db.define('Task',
     {description: 
         {
             type: DataTypes.STRING,
@@ -9,13 +9,14 @@ const Task = Sequelize.define('Task',
         },
     priority:
         {
-            type: DataTypes.ENUM('LOW','MEDIUM', 'HIGH'),
+            type: DataTypes.STRING,
             defaultValue: 'MEDIUM',
-            allowNull: false
+            allowNull: true
         },
     completion:
         {
             type: DataTypes.INTEGER,
+            defaultValue: 0,
             allowNull: true
         }
     }
