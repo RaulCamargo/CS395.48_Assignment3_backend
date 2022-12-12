@@ -22,10 +22,6 @@ const syncDatabase = async () => {
    }  
  }
 
- db.authenticate()
-   .then(() => console.log('DB connected ...'))
-   .catch(err => console.log('Error: ' + err))
-
 //import express library
 const express = require("express");
 
@@ -52,8 +48,6 @@ const configureApp = async () => {
     res.send("hello world!")
   );
   
-  app.get('/', (req, res) => res.send('INDEX'));
-
    // Mount apiRouter
    app.use("/api", apiRouter);
 

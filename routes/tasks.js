@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Task, Instructor } = require('../database/models');
+const { Task, Employee } = require('../database/models');
 
 // helper function so we don't need to wrap our
 // handler functions in try-catch blocks;
@@ -12,14 +12,14 @@ const ash = require('express-async-handler');
 // automatically catches any error and sends to middleware
 // same as using try/catch and calling next(error)
 router.get('/', ash(async(req, res) => {
-  //{include: [Instructor]}
+  //{include: [Employee]}
   let tasks = await Task.findAll();
   res.status(200).json(tasks);
 }));
 
 /** GET Task BY ID */
 router.get('/:id', ash(async(req, res) => {
-  let task = await Task.findByPk(req.params.id, {include: [Instructor]});
+  let task = await Task.findByPk(req.params.id, {include: [Employee]});
   res.status(200).json(task);
 }));
 
