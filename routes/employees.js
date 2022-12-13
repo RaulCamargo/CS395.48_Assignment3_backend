@@ -10,13 +10,13 @@ const ash = require('express-async-handler');
 
 /** GET ALL EMPLOYEES */
 router.get('/', ash(async(req, res) => {
-  let employees = await Employee.findAll({include: [Course]});
+  let employees = await Employee.findAll({include: [Task]});
   res.status(200).json(employees);
 }));
 
 /** GET Employee BY ID*/
 router.get('/:id', ash(async(req, res) => {
-  let employee = await Employee.findByPk(req.params.id, {include: [Course]});
+  let employee = await Employee.findByPk(req.params.id, {include: [Task]});
   res.status(200).json(employee);
 }));
 
@@ -43,7 +43,7 @@ router.put('/:id', ash(async(req, res) => {
       id: req.params.id
     }
   });
-  let employee = await Employee.findByPk(req.params.id, {include: [Course]});
+  let employee = await Employee.findByPk(req.params.id, {include: [Task]});
   res.status(201).json(employee);
 }))
 
