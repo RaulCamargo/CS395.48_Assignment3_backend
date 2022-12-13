@@ -11,7 +11,7 @@ const syncDatabase = async () => {
      //the {force: true} option will clear the database tables
      //every time we restart the server
      //remove the option if you want the data to persist, ie: 
-     //await db.sync();
+     await db.sync();
 
      await db.sync({force: true});
      console.log('------Synced to db--------')
@@ -74,7 +74,7 @@ const configureApp = async () => {
 
 const bootApp = async () => {
   //creates local database if it doesn't exist
-  //await createDB();
+  await createDB();
 
   //calls sync which is a Sequelize method that creates the database tables
   //calls seedDB which will insert initial data into the tables
